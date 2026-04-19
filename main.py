@@ -47,6 +47,11 @@ def mint_token():
         log.error(f"Token error: {e}")
         raise HTTPException(status_code=502, detail=str(e))
 
+@app.post("/session")
+def session_token():
+    """Alias for /token — mint ephemeral xAI Realtime token"""
+    return mint_token()
+
 @app.post("/llm")
 async def llm_relay(request: Request):
     """Relay to OpenRouter"""
