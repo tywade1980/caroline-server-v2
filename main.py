@@ -153,7 +153,7 @@ async def voice_proxy(client_ws: WebSocket):
     try:
         xai_ws = await websockets.connect(
             XAI_REALTIME_URL,
-            additional_headers={"Authorization": f"Bearer {XAI_API_KEY}"},
+            extra_headers={"Authorization": f"Bearer {XAI_API_KEY}"},
             ping_interval=20,
             ping_timeout=10,
         )
